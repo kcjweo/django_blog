@@ -1,0 +1,18 @@
+{% extends 'django_blog_app/base.html' %}
+
+{% block content %}
+
+{% for post in post_list %}
+<div class="card mb-3">
+    <h2 class="card-header bg-dark text-white">{{ post.title }}</h2>
+    <div class="card-body">
+      <p>{{ post.created_at }}, {{ post.category }}</p>
+      <a href="{% url 'django_blog_app:detail' post.pk %}" class="btn btn-dark">read more</a>
+    </div>
+  </div>
+  
+{% endfor %}
+
+{% include 'django_blog_app/page.html' %}
+
+{% endblock %}
